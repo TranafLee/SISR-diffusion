@@ -1,0 +1,94 @@
+23-07-01 11:25:13.926 - INFO:   name: distributed_high_sr_ffhq
+  phase: train
+  gpu_ids: [0, 1]
+  path:[
+    log: experiments/distributed_high_sr_ffhq_230701_112513/logs
+    tb_logger: experiments/distributed_high_sr_ffhq_230701_112513/tb_logger
+    results: experiments/distributed_high_sr_ffhq_230701_112513/results
+    checkpoint: experiments/distributed_high_sr_ffhq_230701_112513/checkpoint
+    resume_state: /kaggle/input/weights-sr3/checkpoint/I830000_E32
+    experiments_root: experiments/distributed_high_sr_ffhq_230701_112513
+  ]
+  datasets:[
+    train:[
+      name: FFHQ
+      mode: HR
+      dataroot: dataset/ffhq_64_512
+      datatype: img
+      l_resolution: 64
+      r_resolution: 512
+      batch_size: 2
+      num_workers: 8
+      use_shuffle: True
+      data_len: -1
+    ]
+    val:[
+      name: CelebaHQ
+      mode: LRHR
+      dataroot: dataset/celebahq_64_512
+      datatype: img
+      l_resolution: 64
+      r_resolution: 512
+      data_len: 3
+    ]
+  ]
+  model:[
+    which_model_G: sr3
+    finetune_norm: False
+    unet:[
+      in_channel: 6
+      out_channel: 3
+      inner_channel: 64
+      norm_groups: 16
+      channel_multiplier: [1, 2, 4, 8, 16]
+      attn_res: []
+      res_blocks: 1
+      dropout: 0
+    ]
+    beta_schedule:[
+      train:[
+        schedule: linear
+        n_timestep: 2000
+        linear_start: 1e-06
+        linear_end: 0.01
+      ]
+      val:[
+        schedule: linear
+        n_timestep: 2000
+        linear_start: 1e-06
+        linear_end: 0.01
+      ]
+    ]
+    diffusion:[
+      image_size: 512
+      channels: 3
+      conditional: True
+    ]
+  ]
+  train:[
+    n_iter: 25000
+    val_freq: 1000.0
+    save_checkpoint_freq: 1000.0
+    print_freq: 50
+    optimizer:[
+      type: adam
+      lr: 3e-06
+    ]
+    ema_scheduler:[
+      step_start_ema: 5000
+      update_ema_every: 1
+      ema_decay: 0.9999
+    ]
+  ]
+  wandb:[
+    project: distributed_high_sr_ffhq
+  ]
+  distributed: True
+  log_wandb_ckpt: False
+  log_eval: False
+  enable_wandb: False
+
+23-07-01 11:25:13.979 - INFO: Dataset [LRHRDataset - FFHQ] is created.
+23-07-01 11:25:13.980 - INFO: Dataset [LRHRDataset - CelebaHQ] is created.
+23-07-01 11:25:13.980 - INFO: Initial Dataset Finished
+23-07-01 11:25:14.461 - INFO: Initialization method [orthogonal]

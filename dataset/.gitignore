@@ -13,6 +13,7 @@ __pycache__/
 *.png
 !*000[3-4][0-1].png
 
+dataset/
 experiments/*
 build/
 develop-eggs/
