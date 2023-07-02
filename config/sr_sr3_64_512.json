@@ -10,7 +10,7 @@
         "results": "results",
         "checkpoint": "checkpoint",
         "resume_state": null
-        // "resume_state": "/kaggle/input/weights-sr3/checkpoint/I830000_E32" //pretrain model or training state
+        "resume_state": "/kaggle/input/weights-sr3/checkpoint/I830000_E32" //pretrain model or training state
     },
     "datasets": {
         "train": {
@@ -61,13 +61,13 @@
         "beta_schedule": { // use munual beta_schedule for acceleration
             "train": {
                 "schedule": "linear",
-                "n_timestep": 1000,
+                "n_timestep": 2000,
                 "linear_start": 1e-6,
                 "linear_end": 1e-2
             },
             "val": {
                 "schedule": "linear",
-                "n_timestep": 1000,
+                "n_timestep": 2000,
                 "linear_start": 1e-6,
                 "linear_end": 1e-2
             }
