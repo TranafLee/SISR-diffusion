@@ -17,7 +17,7 @@
             "name": "train_16_128",
             "mode": "HR",
             "dataroot": "/kaggle/input/flower-16-128/img_16_128/train_16_128",
-            "datatype": "lmdb", //lmdb or img, path of img files
+            "datatype": "img", //lmdb or img, path of img files
             "l_resolution": 16,
             "r_resolution": 128,
             "batch_size": 12,
@@ -29,7 +29,7 @@
             "name": "valid_16_128",
             "mode": "LRHR",
             "dataroot": "/kaggle/input/flower-16-128/img_16_128/valid_16_128",
-            "datatype": "lmdb", //lmdb or img, path of img files
+            "datatype": "img", //lmdb or img, path of img files
             "l_resolution": 16,
             "r_resolution": 128,
             "data_len": 5 
