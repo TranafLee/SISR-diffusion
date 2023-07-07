@@ -9,8 +9,8 @@
         "tb_logger": "tb_logger",
         "results": "results",
         "checkpoint": "checkpoint",
-        "resume_state": null
-        // "resume_state": "experiments/sr_ffhq_210806_204158/checkpoint/I640000_E37" //pretrain model or training state
+        // "resume_state": null
+        "resume_state": "/kaggle/input/ckpt-sr3-16-128/pretrain_16_128/I640000_E37" //pretrain model or training state
     },
     "datasets": {
         "train": {
@@ -32,7 +32,7 @@
             "datatype": "img", //lmdb or img, path of img files
             "l_resolution": 16,
             "r_resolution": 128,
-            "data_len": -1 // data length in validation 
+            "data_len": 5 // data length in validation 
         }
     },
     "model": {
@@ -76,10 +76,10 @@
         }
     },
     "train": {
-        "n_iter": 60000,
-        "val_freq": 5e3,
-        "save_checkpoint_freq": 5e3,
-        "print_freq": 200,
+        "n_iter": 30000,
+        "val_freq": 1e3,
+        "save_checkpoint_freq": 3e3,
+        "print_freq": 10,
         "optimizer": {
             "type": "adam",
             "lr": 1e-4
@@ -91,6 +91,6 @@
         }
     },
     "wandb": {
-        "project": "flower_16_128"
+        "project": "sr3_16_128"
     }
 }
