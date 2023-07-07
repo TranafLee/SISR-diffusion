@@ -9,8 +9,8 @@
         "tb_logger": "tb_logger",
         "results": "results",
         "checkpoint": "checkpoint",
-        "resume_state": null
-        // "resume_state": "/kaggle/input/weights-sr3/checkpoint/I830000_E32" //pretrain model or training state
+        // "resume_state": null
+        "resume_state": "/kaggle/input/ckpt-sr3-256-512/ckpt-sr3-256-512/I27000_E68" //pretrain model or training state
     },
     "datasets": {
         "train": {
@@ -79,7 +79,7 @@
         }
     },
     "train": {
-        "n_iter": 30000,
+        "n_iter": 45000,
         "val_freq": 1e3,
         "save_checkpoint_freq": 3e3,
         "print_freq": 10,
