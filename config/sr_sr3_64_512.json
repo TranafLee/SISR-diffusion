@@ -10,7 +10,7 @@
         "results": "results",
         "checkpoint": "checkpoint",
         // "resume_state": null
-        "resume_state": "/kaggle/input/pretrain-64-512/pretrain_64_512/I830000_E32" //pretrain model or training state
+        "resume_state": "/kaggle/input/ckpt-sr3-64-512-v1/ckpt-sr3-64-512/I850000_E82" //pretrain model or training state
     },
     "datasets": {
         "train": {
@@ -79,7 +79,7 @@
         }
     },
     "train": {
-        "n_iter": 850000,
+        "n_iter": 870000,
         "val_freq": 1e3,
         "save_checkpoint_freq": 2e3,
         "print_freq": 50,
