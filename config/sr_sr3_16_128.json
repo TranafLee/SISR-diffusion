@@ -76,13 +76,13 @@
         }
     },
     "train": {
-        "n_iter": 700000,
+        "n_iter": 720000,
         "val_freq": 1e3,
-        "save_checkpoint_freq": 3e3,
+        "save_checkpoint_freq": 5e3,
         "print_freq": 10,
         "optimizer": {
             "type": "adam",
-            "lr": 1e-4
+            "lr": 5e-5
         },
         "ema_scheduler": { // not used now
             "step_start_ema": 5000,
