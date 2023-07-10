@@ -94,6 +94,6 @@
         }
     },
     "wandb": {
-        "project": "ddpm_4x"
+        "project": "sr3_4x"
     }
 }

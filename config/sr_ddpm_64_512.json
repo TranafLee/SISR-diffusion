@@ -1,5 +1,5 @@
 {
-    "name": "flower_4x",
+    "name": "flower_8x",
     "phase": "train", // train or val
     "gpu_ids": [
         0,1
@@ -9,16 +9,16 @@
         "tb_logger": "tb_logger",
         "results": "results",
         "checkpoint": "checkpoint",
-        "resume_state": null
-        // "resume_state": "/kaggle/input/weights-sr3/checkpoint/I830000_E32" //pretrain model or training state
+        // "resume_state": null
+        "resume_state": "/kaggle/input/ckpt-sr3-64-512-v1/ckpt-sr3-64-512/I850000_E82" //pretrain model or training state
     },
     "datasets": {
         "train": {
-            "name": "flower_4x",
+            "name": "flower_8x",
             "mode": "HR", // whether need LR img
-            "dataroot": "/kaggle/input/flower-128-512/img_128_512/train_128_512",
+            "dataroot": "/kaggle/input/flower-64-512/img_64_512/train_64_512",
             "datatype": "img", //lmdb or img, path of img files
-            "l_resolution": 128, // low resolution need to super_resolution
+            "l_resolution": 64, // low resolution need to super_resolution
             "r_resolution": 512, // high resolution
             "batch_size": 2,
             "num_workers": 8,
@@ -26,13 +26,13 @@
             "data_len": -1 // -1 represents all data used in train
         },
         "val": {
-            "name": "flower_4x",
+            "name": "flower_8x",
             "mode": "LRHR",
-            "dataroot": "/kaggle/input/flower-128-512/img_128_512/valid_128_512",
+            "dataroot": "/kaggle/input/flower-64-512/img_64_512/valid_64_512",
             "datatype": "img", //lmdb or img, path of img files
-            "l_resolution": 128,
+            "l_resolution": 64,
             "r_resolution": 512,
-            "data_len": 5
+            "data_len": 50
         }
     },
     "model": {
@@ -79,10 +79,10 @@
         }
     },
     "train": {
-        "n_iter": 30000,
+        "n_iter": 868000,
         "val_freq": 1e3,
         "save_checkpoint_freq": 3e3,
-        "print_freq": 10,
+        "print_freq": 50,
         "optimizer": {
             "type": "adam",
             "lr": 3e-6
@@ -94,6 +94,6 @@
         }
     },
     "wandb": {
-        "project": "ddpm_128_512"
+        "project": "sr3_8x"
     }
 }
