@@ -94,6 +94,6 @@
         }
     },
     "wandb": {
-        "project": "flower_256_512"
+        "project": "sr3_2x"
     }
 }
