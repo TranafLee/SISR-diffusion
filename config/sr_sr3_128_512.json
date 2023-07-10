@@ -94,6 +94,6 @@
         }
     },
     "wandb": {
-        "project": "sr3_128_512"
+        "project": "sr3_4x"
     }
 }
