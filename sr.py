@@ -189,7 +189,7 @@ if __name__ == "__main__":
             lr_img = Metrics.tensor2img(visuals['LR'])  # uint8
             fake_img = Metrics.tensor2img(visuals['INF'])  # uint8
 
-            sr_img_mode = 'grid'
+            sr_img_mode = 'single'
             if sr_img_mode == 'single':
                 # single img series
                 sr_img = visuals['SR']  # uint8
